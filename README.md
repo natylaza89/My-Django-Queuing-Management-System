@@ -1,2 +1,4 @@
 # my-django-project
-My 1st project with Django
+Under Construction........
+
+https://mynailsapp.herokuapp.com/
