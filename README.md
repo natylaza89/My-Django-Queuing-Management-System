@@ -13,6 +13,16 @@ Link to the project: <a href="https://mynailsapp.herokuapp.com/">My Project</a>
             <td><img src="https://github.com/natylaza89/my-django-project/blob/master/images/contact_us.png" alt=""></td>
             <td><img src="https://github.com/natylaza89/my-django-project/blob/master/images/aboutus.png" alt=""></td>
     </tr>
+        <tr>
+            <td><img src="https://github.com/natylaza89/my-django-project/blob/master/images/calendar_treatments.png" alt=""></td>
+            <td><img src="https://github.com/natylaza89/my-django-project/blob/master/images/day_treatment.png" alt=""></td>
+            <td><img src="https://github.com/natylaza89/my-django-project/blob/master/images/my_treatments.png" alt=""></td>
+    </tr>
+        <tr>
+            <td><img src="https://github.com/natylaza89/my-django-project/blob/master/images/email_cancelation_notification.png" alt=""></td>
+            <td><img src="https://github.com/natylaza89/my-django-project/blob/master/images/email_notification.png" alt=""></td>
+            <td><img src="https://github.com/natylaza89/my-django-project/blob/master/images/google_calendar.png" alt=""></td>
+    </tr>
 </table>
 
 <h1><u>Web Application Features</u></h1>
