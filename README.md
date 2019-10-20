@@ -5,7 +5,7 @@
 Iמ this project, I build a system which its main goal is to have "Queuing Management System" functionality.<br>
 Ofcourse, it has more abilities like sending emails, posting a message and many more which I will describe in the next section.
 <br><br>
-Link to the project: <a href="https://mynailsapp.herokuapp.com/">My Project</a>
+Link to the Web Application: <a href="https://mynailsapp.herokuapp.com/">My Project</a>
 </p>
 <table>
     <tr>
