@@ -9,9 +9,9 @@ Link to the project: <a href="https://mynailsapp.herokuapp.com/">My Project</a>
 </p>
 <table>
     <tr>
-            <td><img src="https://github.com/natylaza89/my-django-project/blob/master/images/main.png" alt="" height="250px" width="500px"></td>
-            <td><img src="https://github.com/natylaza89/my-django-project/blob/master/images/contact_us.png" alt="" height="250px" width="500px"></td>
-            <td><img src="https://github.com/natylaza89/my-django-project/blob/master/images/aboutus.png" alt="" height="250px" width="500px"></td>
+            <td><img src="https://github.com/natylaza89/my-django-project/blob/master/images/main.png" alt="" height="250px" width="600px"></td>
+            <td><img src="https://github.com/natylaza89/my-django-project/blob/master/images/contact_us.png" alt="" height="250px" width="600px"></td>
+            <td><img src="https://github.com/natylaza89/my-django-project/blob/master/images/aboutus.png" alt="" height="250px" width="600px"></td>
     </tr>
 </table>
 
