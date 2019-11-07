@@ -1,0 +1,92 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<div class="container-fluid" dir="rtl">
+    <!-- Example row of columns -->
+
+      <!-- display-5 Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron alert alert-light border border-secondary shadow">
+            {% if user.is_authenticated %}
+              <h4 class="article-text text-center text-justify text-sm-center">ברוכים הנמצאים</h4>
+              <h5 class="article-text text-center text-justify text-sm-center">{{ user.username }}</h5>
+              <p class="btn-outline-warning shadow p-1 btn-lg article-text text-center">נשמח אם תדרגו את רמת השירות שלנו בסקר</p>
+
+              <h5 class="border-bottom mb-4 article-text text-center">{{ latest_poll.question_text }}</h4>
+
+              {% if poll_error_message %}<p class="outline-warning shadow p-2 btn-lg article-text text-center"><strong>{{ poll_error_message }}</strong></p>{% endif %}
+          
+              <div class="container">
+                <div class="row justify-content-md-center">
+                      <div class="col col-lg-2"></div>
+                      <div class="col-md-auto">
+                        <form class="article-text text-right" action="{% url 'polls:vote' latest_poll.id %}" method="post">
+                          {% csrf_token %}
+                          {% for choice in latest_poll.choice_set.all %}
+                            <input class="shadow" type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>  
+                            <br>
+                          {% endfor %}
+                          <input class="btn btn-outline-warning shadow p-2 mb-1 mr-3" type="submit" value="שלח">
+                      </form>
+                      </div>
+                      <div class="col col-lg-2"></div>
+                </div>
+             </div>
+            {% else %}
+              <h4 class="article-text text-center" >ברוכים הבאים!</h3>
+              <p class="article-text p-1">אנא הרשמו לאתר על מנת שתוכלו לעשות שימוש בשירות שלנו</p>
+              <p><a class="btn btn-outline-warning shadow p-2 btn-lg" href="{% url 'register' %}" role="button">לחץ כאן להמשך &raquo;</a></p>
+            {% endif %}
+
+        </div>
+
+
+    {% for post in posts %}
+
+      <div class="card border-secondary col-mb-ml-auto pb-auto shadow">
+            <div class="card-header">
+              
+                <div class="article article-text">
+                    <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+                    <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+                    <legend class="text-dark text-sm text-left">{{ post.date_posted|date:"j/n/y" }}</small>  
+                </div>
+
+
+            </div>
+            <div class="card-body text-secondary article-text">
+             
+               <h5 class="card-title"><a class="article-title">{{ post.title }}</a></h5>
+               <p class="article-content ">{{ post.content }}</p>
+              
+              <p><a class="btn btn-secondary" href="{% url 'post-detail' post.id %}" role="button">לעדכון המלא &raquo;</a></p>
+            </div>
+        </div>
+        <div class="pb-4 pr-3"></div>
+    {% endfor %}
+    </div>
+
+      {% if is_paginated %}
+
+        {% if page_obj.has_previous %}
+          <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+          <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+              <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+              <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+          <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+          <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+        {% endif %}
+
+      {% endif %}
+
+{% endblock content%}

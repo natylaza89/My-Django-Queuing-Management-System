@@ -1,0 +1,51 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+<div class="card border-secondary shadow">
+
+  <div class="card-header text-center">
+    <div class="article article-text ">
+      <h1 class="text-secondary text-center">לוח יומי</h1>
+    </div>
+  </div>
+
+  <div class="card-body text-secondary article-text pt-3 text-center">
+    <!-- Responsive calendar - START -->
+    <div class="responsive-calendar" dir="rtl">
+      <div class="controls">
+        <h4><span data-head-day>{{ day }}&nbsp;</span><span data-head-month> {{ month }} </span> <span data-head-year>
+            {{ year }} </span></h4>
+      </div>
+      <hr />
+
+      <div>
+        אירוע\חג להיום:
+        <hr />
+        <div>
+          {{ holidays }}
+        </div>
+      </div>
+
+      <hr />
+      <div>
+        רשימת תורים להיום:
+        <hr />
+        {{ treatments }}
+      </div>
+      <hr />
+    </div>
+    <div class="responsive-calendar" dir="rtl">
+      <div class="controls">
+          <a class="pull-left" href="{% url 'calendar:calendar_new_treatment' %}"><div class="btn btn-warning text-center">הזמנת טיפול</div></a>
+          <a class="pull-right" href="{% url 'calendar:calendar' %}{{ previous }}">
+          <div class="btn btn-secondary text-center">חזרה &raquo;</div>
+        </a>
+      </div>
+    </div>
+    <!-- Responsive calendar - END -->
+  </div>
+</div>
+</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+{% endblock content %}

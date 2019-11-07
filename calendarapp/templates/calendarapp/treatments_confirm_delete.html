@@ -1,0 +1,46 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+
+<div class="card border-secondary col-mb-ml-auto pb-auto shadow" dir="rtl">
+    <div class="card-header">
+        <div class="article article-text">
+            <h1 class="text-secondary text-center">ביטול תור</h1>
+            <hr/>
+        </div>
+        <div class="card-body text-secondary article-text">
+            
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <h3 class="text-center">האם לבטל את התור הקיים?</h3>
+                    <hr/>
+                    <p>
+                    <h5>פרטי התור:</h5>
+                    
+                       <li>תאריך - {{ object.date }}</li>
+                       <li>שעה - {{ object.time }}</li>
+                       <li>סוג טיפול - {{ object.title }}</li>
+                       <li>הערות - {{ object.description }}</li>
+                    
+                    </p>
+                </fieldset>
+                <div class="form-group text-center">
+                    <button class="btn btn-outline-danger" type="submit">אישור מחיקה</button>
+                    <a class="btn btn-outline-secondary"
+                        href="{% url 'calendar:calendar_edit_treatment' object.id %}">בטל מחיקה</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+{% endblock content %}

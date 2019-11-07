@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+{% block content%}
+    
+
+    <div class="card border-secondary col-mb-ml-auto pb-auto shadow" dir="rtl">
+        <div class="card-header">
+            <div class="article article-text">
+                <h1 class="text-secondary text-center">מחיקת הודעה</h1>  
+            </div>
+        <div class="card-body text-secondary article-text">
+                <form method="POST">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <h3>האם לבצע מחיקת הודעה? "{{ object.title }}"</h3>
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline-danger" type="submit">אישור מחיקה</button>
+                            <a class="btn btn-outline-secondary" href="{% url 'post-detail' object.id %}">בטל מחיקה</a>
+                        </div>
+                    </form>
+        </div>
+    </div>
+    <div>&nbsp;</div>
+{% endblock content%}

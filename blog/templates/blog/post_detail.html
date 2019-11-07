@@ -1,0 +1,31 @@
+{% extends "blog/base.html" %}
+
+{% block content%}
+
+
+    <div class="card border-secondary col-mb-ml-auto pb-auto shadow" dir="rtl">
+        <div class="card-header">
+        
+            <div class="article article-text">
+                <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+                <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ post.author }}</a>
+                <small class="text-muted">{{ object.date_objected|date:"j/n/y" }}</small>
+                {% if object.author == user %}
+                <div>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">ערוך הודעה</a>  
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">מחק הודעה</a> 
+                </div>
+                {% endif %}         
+            </div>
+
+        </div>
+        <div class="card-body text-secondary article-text">
+        
+        <h2 class="article-title"><a class="article-title">{{ post.title }}</a></25>
+        <p class="article-content ">{{ post.content }}</p>
+
+    </div>
+    </div>
+    <div class="pb-4 pr-3"></div>
+
+{% endblock content%}

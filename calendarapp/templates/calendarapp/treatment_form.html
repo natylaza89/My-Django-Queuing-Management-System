@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+
+
+<div class="card border-secondary col-mb-ml-auto pb-auto shadow">
+    <div class="card-header">
+        <div class="article article-text ">
+            <h1 class="text-secondary text-center">הזמנת טיפול</h1>
+        </div>
+    </div>
+    <div class="card-body text-secondary article-text border-top pt-3" dir="rtl">
+
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group text-center">
+            </div>
+            <div class="container">
+                {% if treatment_exist %}
+                <button class="btn btn-outline-warning shadow p-2" type="submit">שינוי הזמנה</button>
+                <a class="btn btn-outline-danger shadow p-2" href="{% url 'calendar:calendar_treatment_delete' treatment_id %}">בטל הזמנה</a> 
+                {% else %}
+                <button class="btn btn-outline-warning shadow p-2" type="submit">הזמנה</button>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock content%}

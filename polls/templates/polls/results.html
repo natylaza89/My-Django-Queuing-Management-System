@@ -1,0 +1,44 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+<div class="card border-secondary col-mb-ml-auto pb-auto shadow" dir="rtl">
+    <div class="card-header">
+        <div class="article article-text">
+            <h1 class="text-secondary text-center">{{ question.question_text }}</h1>
+        </div>
+
+
+        <div class="container">
+            <div class="row justify-content-md-center border-top pt-3">
+                
+                <div class="col col-lg-1"></div>
+                <div class="col-md-auto">
+                    <ul class="list-group">
+                        <form class="article-text" action="{% url 'polls:vote' latest_poll.id %}"
+                            method="post">
+                            {% csrf_token %}
+                            {% for choice in question.choice_set.all %}
+                            <li class="list-group-item d-flex text-right justify-content-between align-items-center">
+                                {{ choice.choice_text }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="badge badge-warning badge-pill">{{ choice.votes }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        
+                        </form>
+                </div>
+                <div class="col col-lg-2"></div>
+            </div>
+        </div>
+        <div class="article-text text-center">
+        <p class="article-text text-center pt-4">
+                תודה על הדירוג! דעתכם חשובה לנו!
+        </p>
+
+        <a class="btn btn-outline-warning shadow p-2" href="{% url 'home' %}"
+            role="button">חזרה לעמוד הראשי &raquo;</a>
+        </div>
+
+    </div>
+</div>
+{% endblock content%}

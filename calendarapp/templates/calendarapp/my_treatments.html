@@ -1,0 +1,73 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+<div class="card border-secondary shadow">
+
+    <div class="card-header text-center">
+        <div class="article article-text ">
+            <h1 class="text-secondary text-center">התורים שלי</h1>
+        </div>
+    </div>
+    <br>
+    <div class="responsive-calendar" dir="rtl">
+        <div class="controls">
+            <a class="pull-left" href="{% url 'calendar:calendar_new_treatment' %}">
+                <div class="article-text btn btn-warning text-center">הזמנת טיפול</div>
+            </a>
+        </div>
+    </div>
+
+
+    {% if treatments %}
+    <div class="card-body text-secondary article-text pt-3 text-center">
+
+        <div class='responsive-calendar' dir='rtl'>
+            <div class='day-headers'>
+                <div class='day header' style='border-left: 1px solid gray;'>תאריך</div>
+                <div class='day header'>שעה</div>
+                <div class='day header'>סוג טיפול</div>
+                <div class='day header'>הערות</div>
+                <div class='day header'>עריכה</div>
+            </div>
+
+            {% for treatment in treatments %}
+            <div class='day-headers'>
+                <div class='day header' style='border-left: 1px solid gray;'>
+                    {{ treatment.date.day }}/{{ treatment.date.month }}/{{ treatment.date.year }}</div>
+                <div class='day header'>{{ treatment.time }}</div>
+                <div class='day header' style='color: red;'>{{ treatment.title }}</div>
+                <div class='day header' style='color: red;'>{{ treatment.description }} </div>
+                {% if treatment.date < today_date %}
+                <div class='day header' style='color: red;'>לא זמין</div>
+                {% else %}
+                <a href="{% url 'calendar:calendar_edit_treatment' treatment.id %}">
+                    <div class='day header' style='color: green;'>זמין לשינוי</div>
+                </a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <div class="article article-text ">
+        <br>
+        <h4 class="text-secondary text-center">אין לך תורים במערכת</h4>
+        <br>
+    </div>
+    {% endif %}
+</div>
+<!-- </div> -->
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+{% endblock content %}

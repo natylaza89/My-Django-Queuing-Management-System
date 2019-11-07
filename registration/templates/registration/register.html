@@ -1,0 +1,34 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+<div class="card border-secondary col-mb-ml-auto pb-auto shadow" dir="rtl">
+        <div class="card-header">
+            <div class="article article-text ">
+                <h1 class="text-secondary text-center">הרשמה למערכת</h1>  
+            </div>
+        </div>
+        <div class="card-body text-secondary article-text border-top pt-3">
+            
+                <form method="POST">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            {{ user_form|crispy }}
+                            {{ profile_form|crispy }}
+                        </fieldset>
+                        <div class="form-group text-center">
+
+                        </div>
+                        <div class="container">
+                            <button class="btn btn-outline-warning shadow p-2" type="submit">ביצוע הרשמה</button>
+                        </div>
+                    </form>
+        </div>
+        <div class="shadow border-top article article-text pt-2 pb-2 pr-3">
+                <small class=" text-muted">
+                    יש לך כבר חשבון? <a href="{% url 'login' %}" class="text-warning pr-1">לחצו כאן כדי להתחבר!</a>
+                </small>
+            </div>
+</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+{% endblock content%}

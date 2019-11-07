@@ -1,0 +1,49 @@
+.calendar {
+
+    width: 100%;
+
+
+    border-collapse: collapse;
+    perspective: 100px;
+    font-size: 13px;
+  }
+  
+  .calendar tr, .calendar td {
+    border: 1px solid black;
+
+  }
+  
+  .calendar th {
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .calendar td {
+    width: 200px;
+    height: 150px;
+    padding: 20px 15px 0px 5px;
+  }
+  
+  .month {
+    font-size: 25px;
+    border: 1px solid black;
+ 
+  }
+  
+  .date {
+    font-size: 16px;
+
+  }
+
+  .sun, .mon, .tue, .wed, .thu, .fri, .sat{
+    border: 1px solid black;
+
+  }
+
+  ul {
+    height: 100%;
+    padding: 0px 5px 0px 20px;
+  }
+  
+  

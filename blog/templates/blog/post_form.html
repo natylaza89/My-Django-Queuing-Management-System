@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+<div class="card border-secondary col-mb-ml-auto pb-auto shadow" dir="rtl">
+    <div class="card-header">
+        <div class="article article-text">
+            <h1 class="text-secondary text-center">הודעה חדשה</h1>
+        </div>
+        <div class="card-body text-secondary article-text">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-warning" type="submit">&laquo; שליחת הודעה </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div>&nbsp;</div>
+{% endblock content%}
