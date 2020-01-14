@@ -2,7 +2,7 @@
 
 <h1><u>Welcome to My 1st Django Project!</u></h1>
 <p>
-Iמ this project, I build a system which its main goal is to have "Queuing Management System" functionality.<br>
+In this project, I build a system which its main goal is to have "Queuing Management System" functionality.<br>
 Ofcourse, it has more abilities like sending emails, posting a message and many more which I will describe in the next section.
 <br><br>
 Link to the Web Application: <a href="https://mynailsapp.herokuapp.com/">Live Demo</a>
