@@ -56,7 +56,7 @@ Link to the Web Application: <a href="https://mynailsapp.herokuapp.com/">Live De
 - Telegram API Integration <br>
 - Tests <br>
 - Logging <br>
-- Extra Dashboard with analsys <br>
+- Extra Dashboard with analysis <br>
 </p>
 
 <h1><u>Acknowledgments</u></h1>
